@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}结算 - 拾光小店{% endblock %}
+{% block content %}
+  <h1>确认订单</h1>
+  <form id="checkout-form" method="post" action="{{ url_for('checkout') }}">
+    <label for="address">收货地址</label>
+    <input id="address" name="address" type="text" placeholder="请填写收货地址" required>
+    <label for="phone">联系电话</label>
+    <input id="phone" name="phone" type="text" placeholder="请填写联系电话" required>
+    <button id="confirm-order-btn" type="submit">提交订单</button>
+  </form>
+{% endblock %}

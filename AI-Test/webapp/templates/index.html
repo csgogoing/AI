@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}首页 - 拾光小店{% endblock %}
+{% block content %}
+  <h1>今日好物</h1>
+  <div id="product-list" class="product-grid">
+    {% for p in products %}
+      <div class="product" data-product-id="{{ p.id }}">
+        <div class="product-name">{{ p.name }}</div>
+        <div class="product-price">¥{{ p.price }}</div>
+        <div class="product-stock">库存 {{ p.stock }}</div>
+        <form method="post" action="{{ url_for('add_to_cart', product_id=p.id) }}">
+          <button class="add-to-cart" type="submit">加入购物车</button>
+        </form>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

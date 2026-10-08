@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}购物车 - 拾光小店{% endblock %}
+{% block content %}
+  <h1>购物车</h1>
+  {% if items %}
+    <div id="cart-items">
+      {% for item in items %}
+        <div class="cart-item" data-product-id="{{ item.product.id }}">
+          <span class="cart-item-name">{{ item.product.name }}</span>
+          <span class="cart-item-price">¥{{ item.product.price }} × {{ item.qty }}</span>
+          <span class="cart-item-subtotal">小计 ¥{{ item.subtotal }}</span>
+        </div>
+      {% endfor %}
+    </div>
+    <div id="total-price">合计：¥{{ total }}</div>
+    <button id="checkout-btn" onclick="location.href='{{ url_for('checkout') }}'">去结算</button>
+  {% else %}
+    <div id="cart-empty">购物车是空的，去首页逛逛吧。</div>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}登录 - 拾光小店{% endblock %}
+{% block content %}
+  <h1>登录</h1>
+  <form id="login-form" method="post" action="{{ url_for('login') }}">
+    <label for="username">用户名</label>
+    <input id="username" name="username" type="text" autocomplete="username" required>
+    <label for="password">密码</label>
+    <input id="password" name="password" type="password" autocomplete="current-password" required>
+    {% if error %}
+      <div id="login-error" class="form-error">{{ error }}</div>
+    {% endif %}
+    <button id="login-btn" type="submit">登 录</button>
+  </form>
+  <p class="hint">演示账号：admin / admin123</p>
+{% endblock %}

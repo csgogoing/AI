@@ -1,0 +1,26 @@
+{
+  "script_name": "test_smoke_003_login.py",
+  "cases": [
+    {
+      "func": "test_smoke_login_success",
+      "title": "正确账号密码登录成功",
+      "precondition": "已注册账号 admin/admin123",
+      "steps": "1. 打开登录页; 2. 输入用户名 admin; 3. 输入密码 admin123; 4. 点击登录",
+      "expected": "登录成功跳转首页, 导航栏显示用户 admin"
+    },
+    {
+      "func": "test_smoke_login_failure",
+      "title": "错误密码登录被拦截并提示",
+      "precondition": "已注册账号 admin",
+      "steps": "1. 打开登录页; 2. 输入用户名 admin; 3. 输入错误密码; 4. 点击登录",
+      "expected": "页面显示登录错误提示 login-error"
+    },
+    {
+      "func": "test_smoke_add_cart_and_checkout",
+      "title": "登录后加购、结算、提交订单生成订单号",
+      "precondition": "已登录 admin 账号, 购物车为空",
+      "steps": "1. 打开首页; 2. 点击第一个商品加入购物车; 3. 进入购物车; 4. 点击去结算; 5. 填写地址电话; 6. 提交订单",
+      "expected": "跳转订单成功页, 显示 order-success 且订单号以 SO 开头"
+    }
+  ]
+}
